@@ -1,9 +1,22 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
+import { AppController } from './app.controller';
+import { VaultsModule } from './vaults/vaults.module';
+import { CardsModule } from './cards/cards.module';
+
 
 @Module({
-  imports: [],
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: 'development.env',
+      ignoreEnvFile: process.env.NODE_ENV === 'production',
+    }),
+    MongooseModule.forRoot(process.env.MONGO_URL),
+    VaultsModule,
+    CardsModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
