@@ -15,7 +15,7 @@ import { CardsModule } from './cards/cards.module';
     }),
     MongooseModule.forRoot(process.env.MONGO_URL),
     VaultsModule,
-    CardsModule
+    CardsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
