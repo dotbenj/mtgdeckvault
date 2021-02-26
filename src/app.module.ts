@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { VaultsModule } from './vaults/vaults.module';
 import { CardsModule } from './cards/cards.module';
-
+import { ScryfallModule } from './scryfall/scryfall.module';
 
 @Module({
   imports: [
@@ -16,6 +16,7 @@ import { CardsModule } from './cards/cards.module';
     MongooseModule.forRoot(process.env.MONGO_URL),
     VaultsModule,
     CardsModule,
+    ScryfallModule,
   ],
   controllers: [AppController],
   providers: [AppService],
